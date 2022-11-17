@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+{% block title %}我的课程{% endblock %}
+{% block content %}
+
+{% load static %}
+<link href="{% static 'css/whir_common.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/whir_home.css' %}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{% static 'js/jquery1.42.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.SuperSlide.2.1.1.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/index_solid.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/column.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/zhuce.js' %}"></script>
+
+<script language="javascript" type="text/javascript">
+        window.moveTo(-4,-4);
+        window.resizeTo(screen.availWidth,screen.availHeight);
+</script>
+
+<div class="clear"></div>
+<!--公告-->
+<div class="notice">
+  <h1 style="color:black; font-family:KaiTi"><b>学习任务：</b></h1>
+  <div class="txtMarquee-left">
+    <div class="bd">
+      <ul class="infoList">
+        <li><a href="#" target="_blank">距离英语四级考试还有：</a><span>100天</span></li>
+        <li><a href="#" target="_blank">距离英语六级考试还有：</a><span>150天</span></li>
+        <li><a href="#" target="_blank">距离ACCA下一科考试还有：</a><span>50天</span></li>
+        <li><a href="#" target="_blank">CPA下一个考试科目：</a><span>会计</span></li>
+      </ul>
+    </div>
+    <div class="hd"> <a class="next"></a> <a class="prev"></a> </div>
+  </div>
+  <script type="text/javascript">
+		jQuery(".txtMarquee-left").slide({mainCell:".bd ul",autoPlay:true,effect:"leftMarquee",vis:2,interTime:50});
+		</script>
+</div>
+<!--专题and图片切换-->
+<div class="clear"></div>
+<div class="topics">
+  <!--图片切切换-->
+  <div id="banner">
+    <div id="ifocus">
+      <div style="overflow:hidden" id="ifocus_pic">
+        <div style="overflow:hidden; top: 0px; left: 0px" id="ifocus_piclist">
+          <ul>
+            <!--大图_start -->
+            <li><img src="{% static 'images/lz2.jpg' %}"></li>
+            <li><img src="{% static 'images/lz3.jpg' %}"></li>
+            <li><img src="{% static 'images/lz1.jpg' %}"></li>
+            <!--大图_end -->
+          </ul>
+        </div>
+        <div id="ifocus_opdiv"></div>
+        <div id="ifocus_tx">
+          <ul>
+            <!--小图列表_start -->
+            <li class="current">
+            <li class="normal">
+            <li class="normal">
+              <!--小图列表_end -->
+            </li>
+          </ul>
+        </div>
+        <div id="ifocus_btn">
+          <!--小图_start -->
+          <ul>
+            <li class="current"><img src="{% static 'images/lz2.jpg' %}"> </li>
+            <li class="normal"><img src="{% static 'images/lz3.jpg' %}"> </li>
+            <li class="normal"><img src="{% static 'images/lz1.jpg' %}"> </li>
+          </ul>
+          <!--小图_end -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--专题栏目-->
+  <div class="ztzl">
+    <div style="margin-bottom:10px;"><img src="{% static 'images/lz4.jpg' %}" height="135" width="250"></div>
+    <div style="margin-bottom:10px;"><img src="{% static 'images/lz5.jpg' %}" height="135" width="250"></div>
+    <div style="margin-bottom:10px;"><img src="{% static 'images/lz6.jpg' %}" height="135" width="250"></div>
+  </div>
+</div>
+
+<!--课程 and 排行-->
+<div class="column1">
+  <div class="original">
+    <!--课程-->
+    <div class="oricolumn">
+      <div class="title2">
+        <h1>课程</h1>
+      </div>
+      <div class="clear"></div>
+      <div class="orilist">
+        <div class="topvideo"> <img src="{% static 'images/c1.jpg' %}" height="320" width="400"/>
+          <div class="titleinfo">
+            <h1><a href="https://www.bilibili.com/video/BV1x7411b79X?from=search&seid=1026195067726850262&spm_id_from=333.337.0.0">点击：继续观看ACCA视频课</a></h1>
+            <div class="spxx"><a href="#">上次看到</a> | <a href="#">1:07:20</a></div>
+          </div>
+        </div>
+        <div class="splist">
+          <div class="myvideo mb15">
+            <div class="myvideoimg"><img src="{% static 'images/c2.jpg' %}" height="120" width="210"/>
+              <h3><a href="https://www.bilibili.com/video/BV1fZ4y1G72r?from=search&seid=8331275048675702428&spm_id_from=333.337.0.0">点击：继续观看视频课</a></h3>
+            </div>
+            <div class="title3">
+              <div class="playtime"><a href="#">上次看到</a> | <a href="#">06:07</a></div>
+            </div>
+          </div>
+          <div class="myvideo ml20 mb15">
+            <div class="myvideoimg"><img src="{% static 'images/c3.jpg' %}" height="120" width="210"/>
+              <h3><a href="https://www.bilibili.com/video/BV1kM4y1G7c8?from=search&seid=7301366743452585157&spm_id_from=333.337.0.0">点击：继续观看视频课</a></h3>
+            </div>
+            <div class="title3">
+              <div class="playtime"><a href="#">上次看到</a> | <a href="#">20:23</a></div>
+            </div>
+          </div>
+          <div class="myvideo">
+            <div class="myvideoimg"><img src="{% static 'images/c4.jpg' %}" height="120" width="210"/>
+              <h3><a href="https://www.bilibili.com/video/BV1jK4y1D7CA?from=search&seid=7301366743452585157&spm_id_from=333.337.0.0">点击：继续观看视频课</a></h3>
+            </div>
+            <div class="title3">
+              <div class="playtime"><a href="#">上次看到</a> | <a href="#">14:04</a></div>
+            </div>
+          </div>
+          <div class="myvideo ml20">
+            <div class="myvideoimg"><img src="{% static 'images/c5.jpg' %}" height="120" width="210"/>
+              <h3><a href="https://www.bilibili.com/video/BV1Pp4y1i7mL?from=search&seid=8331275048675702428&spm_id_from=333.337.0.0">点击：继续观看视频课</a></h3>
+            </div>
+            <div class="title3">
+              <div class="playtime"><a href="#">上次看到</a> | <a href="#">05:01</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--排行-->
+    <div class="right269">
+      <div class="title4">
+        <h1>课程推荐</h1>
+        <h2>TOP</h2>
+      </div>
+      <div class="paihang">
+        <ul class="list">
+          <li><span class="dig">1</span><a href="#">F4 2020-2021基础课</a></li>
+          <li><span class="dig">2</span><a href="#">ACCA-SBL-FL 总复习课</a></li>
+          <li><span class="dig">3</span><a href="#">注册会计师/CPA-快速入门</a></li>
+          <li><span class="dig1">4</span><a href="#">真正的零基础cpa</a></li>
+          <li><span class="dig1">5</span><a href="#">四级冲刺课程</a></li>
+          <li><span class="dig1">6</span><a href="#">CMA快速备考入门课</a></li>
+          <li><span class="dig1">7</span><a href="#">2021年cfa一级强化冲刺课程</a></li>
+          <li><span class="dig1">8</span><a href="#">CFA三级 备考课程</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--自定义模块-->
+<div class="wenti">
+  <div class="wenticolumn">
+    <div class="title6">
+      <h1>英语</h1>
+	  <div class="change"><a href="/Eva-Language">我的</a></div>
+    </div>
+    <div class="wtjdlist">
+      <div class="toppic"><img src="{% static 'images/lz7.jpg' %}" height="210" width="250"/></div>
+      <ul>
+        <li>·<a href="https://zhuanlan.zhihu.com/p/138772500">请收下这份四六级阅读七大话题关键词！</a></li>
+        <li>·<a href="https://wenku.baidu.com/view/82f61148b81aa8114431b90d6c85ec3a87c28b39.html">大学英语四六级考试作文常考话题</a></li>
+        <li>·<a href="https://baijiahao.baidu.com/s?id=1696821389940074634&wfr=spider&for=pc">四六级口语常考话题汇总！</a></li>
+        <li>·<a href="https://zhuanlan.zhihu.com/p/84798161">四六级听力常考话题词汇总结</a></li>
+        <li>·<a href="https://www.zhihu.com/question/22139035">英语四六级应如何复习？</a></li>
+        <li>·<a href="http://zz.xdf.cn/cet/201910/248557730.html">干货!四六级阅读高分攻略</a></li>
+        <li>·<a href="https://m.tingclass.net/show-242-477978-1.html?gfh=1">四六级考试之阅读篇</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wenticolumn" style="float:right;">
+    <div class="txtScroll-top">
+      <div class="hd">
+        <h1>ACCA</h1>
+      </div>
+      <div class="bd">
+        <ul class="infoList">
+          <li>· Operating profit margin=PBIT(profit before interest and tax)/sales×100%</li>
+          <li>· Gross profit margin=profit margin/sales×100%</li>
+          <li>· Capital employed=shareholder’s equity+long-term debts=total assets-current liability</li>
+          <li>· ROCE=operating profit margin×asset turnover=PBIT/capital employed×100%</li>
+          <li>· Quick ratio=(current asset-inventory)/current liability</li>
+          <li>· Payable payment days=trade payable/purchase(or cost of sales)×365</li>
+          <li>· Gearing ratio=total long term debt/(shareholder’equity+long-term debt)×365</li>
+          <li>· Interest cover=PBIT/interest charges</li>
+          <li>· Debt ratio=total debts/total assets×365</li>
+        </ul>
+      </div>
+    </div>
+    <script type="text/javascript">
+		jQuery(".txtScroll-top").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"top",autoPlay:true,vis:7});
+		</script>
+  </div>
+</div>
+<!--机构-->
+<div class="champion">
+  <div class="picScroll-left1">
+    <div class="hd">
+      <h1>资源</h1>
+      <ul>
+        <li class="on">1</li>
+        <li class="">2</li>
+      </ul>
+    </div>
+    <div class="bd">
+      <ul class="picList">
+        <li>
+          <div class="pic"><img src="{% static 'images/大耳朵英语.jpg' %}" height="210" width="250"/></div>
+          <div class="titles"><span class="zyname"><a href="http://www.bigear.cn/">名称：大耳朵</a></span><br />
+            <span class="zyinfo"> 类型：网站</span>
+          </div>
+        </li>
+        <li>
+          <div class="pic"><img src="{% static 'images/扇贝.jpg' %}" height="210" width="250"/></div>
+          <div class="titles"><span class="zyname"><a href="https://web.shanbay.com/web/main">名称：扇贝阅读</a></span><br />
+            <span class="zyinfo"> 类型：APP</span>
+          </div>
+        </li>
+        <li>
+          <div class="pic"><img src="{% static 'images/中博.jpg' %}" height="210" width="250"/></div>
+          <div class="titles"><span class="zyname"><a href="https://www.zbgedu.com/special-acca2021.html?fftg-bd08-pc-acca_314095">名称：中博教育</a></span><br />
+            <span class="zyinfo"> 类型：培训机构</span>
+          </div>
+        </li>
+        <li>
+          <div class="pic"><img src="{% static 'images/沪江.jpg' %}" height="210" width="250"/></div>
+          <div class="titles"><span class="zyname"><a href="https://www.hjenglish.com/">名称：沪江英语</a></span><br />
+            <span class="zyinfo"> 类型：网站</span>
+          </div>
+        </li>
+        <li>
+          <div class="pic"><img src="{% static 'images/泽稷.jpg' %}" height="210" width="250"/></div>
+          <div class="titles"><span class="zyname"><a href="https://www.zejicert.cn/?baidu-SEM-pinzhuan">名称：泽稷教育</a></span><br />
+            <span class="zyinfo"> 类型：培训机构</span>
+          </div>
+        </li>
+        <li>
+          <div class="pic"><img src="{% static 'images/高顿.jpg' %}" height="210" width="250"/></div>
+          <div class="titles"><span class="zyname"><a href="https://www.gaodun.com/?pc-bdpz">名称：高顿教育</a></span><br />
+            <span class="zyinfo"> 类型：培训机构</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript">
+		jQuery(".picScroll-left1").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:4,trigger:"click"});
+		</script>
+</div>
+{% endblock %}

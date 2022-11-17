@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Certificate Craze</title>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+  <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+  {% load static %}
+  <link rel="canonical" href="{% static 'css/welcome.css' %}">
+  {% comment %} <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> {% endcomment %}
+  <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
+
+  {% comment %} <link rel="stylesheet" href="{% static 'css/style.css' %}"> {% endcomment %}
+
+</head>
+
+<body>
+<main>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Certificate Craze</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">首页</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">登录</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+  
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"
+          aria-current="true"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'images/3.jpg' %}" width="100%" height="100%" style="opacity: 0.92;" />
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1 style="font-family: KaiTi"><b>欢迎来到考证信息平台</b></h1>
+              <p style="font-family: KaiTi"><b>会计、金融、语言类证书信息 & 培训机构、学习网站集合</b></p>
+              <p><a class="btn btn-lg btn-primary" style="font-family: KaiTi" href="{% url 'web:Language' %}"><b>了解更多</b></a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'images/4.jpg' %}" width="10%" height="100%" />
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 style="color: black; font-family: KaiTi">考试通过率 & 成绩分布</h1>
+              <p style="color: black; font-family: KaiTi">查看历年数据帮助你自我评估</p>
+              <p><a class="btn btn-lg btn-primary" style="font-family: KaiTi" href="/login">登录查看</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'images/5.jpg' %}" width="100%" height="100%" />
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1 style="font-family: KaiTi">如何选择合适的培训机构？</h1>
+              <p style="font-family: KaiTi">留下你的评论，与同学们一起交流学习体验吧~</p>
+              <p><a class="btn btn-lg btn-primary" style="font-family: KaiTi"href="{% url 'web:Ins-Language' %}">点击查看</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div class="container marketing">
+
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="picture" src="{% static 'images/1.jpg' %}" />
+          <h2 style="color: black; font-family: KaiTi"><b>证书介绍</b></h2>
+          <p style="font-family: KaiTi"><b>语言类: CET-4, CET-6</b><br><b>会计类: CPA, ACCA, CMA</b><br><b>金融类: CFA，FRM</b></p>
+          <p><a class="btn btn-secondary" style="font-family: KaiTi" href="{% url 'web:Language' %}"><b>了解更多</b></a></p>
+        </div>
+        <div class="col-lg-4">
+          <img class="picture" src="{% static 'images/2.jpg' %}" />
+          <h2 style="color: black; font-family: KaiTi"><b>开始学习</b></h2>
+          <p style="font-family: KaiTi"><b>---培训机构---</b><br><b>---考证app---</b><br/><b>---学习网站---</b></p>
+          <p><a class="btn btn-secondary" style="font-family: KaiTi" href="{% url 'web:Ins-Language' %}"><b>了解更多</b></a></p>
+        </div>
+        <div class="col-lg-4">
+          <img class="picture" src="{% static 'images/7.jpg' %}" />
+          <h2 style="color: black; font-family: KaiTi"><b>历年数据</b></h2>
+          <p style="font-family: KaiTi"><b>---考试通过率&成绩分布---</b><br><b>---我的成绩---</b><br/><b>---学习空间---</b></p>
+          <p><a class="btn btn-secondary" style="font-family: KaiTi" href="/login"><b>登录查看</b></a></p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading" style="font-family: KaiTi;">加入我们的网站<span
+              class="text-muted" style="font-family: KaiTi;">开始你的考证之旅！</span></h2>
+          <p class="lead" style="font-family: KaiTi;"><b>目标：</b><br><b>· 培养兴趣</b><br><b>·
+              职业需求 </b><br><b>· 深入学习 </b><br><b>我们的网站可以提供你所需要的信息！</b>
+          </p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img class="picture-large" src="{% static 'images/6.jpg' %}" />
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+    </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer class="container">
+      <p class="float-end"><a href="#">Back to top</a></p>
+      <p>2021 Certificate Craze Company, Inc. </p>
+    </footer>
+
+</main>
+
+
+</body>
+
+</html>

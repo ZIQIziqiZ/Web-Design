@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Finance</title>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+
+        <!-- Bootstrap -->
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+        {% load static %}
+        <link rel="canonical" href="{% static 'css/dashboard.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+        <link rel="stylesheet" href="{% static 'css/sidebars.css' %}">
+        <link rel="stylesheet" href="{% static 'css/template.css' %}">
+
+    </head>
+</head>
+
+<body>
+
+    <body>
+
+        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="{% url 'web:WebIndex' %}">Certificate Craze</a>
+            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+            <div class="navbar-nav">
+                <div class="nav-item text-nowrap">
+                    <a class="nav-link px-3" href="#">Sign out</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                    <div class="position-sticky pt-3">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="{% url 'web:Language' %}" class="link-dark rounded">
+                                    <button class="btn btn-toggle align-items-center rounded collapsed"
+                                        data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+                                        语言类证书介绍
+                                    </button>
+                                </a>
+                                <div class="collapse show" id="home-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li><a href="https://cet.neea.edu.cn/" class="link-dark rounded">CET-4官网</a></li>
+                                        <li><a href="https://cet.neea.edu.cn/" class="link-dark rounded">CET-6官网</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mb-1">
+                                <a href="{% url 'web:Accounting' %}" class="link-dark rounded">
+                                    <button class="btn btn-toggle align-items-center rounded collapsed"
+                                        data-bs-toggle="collapse" data-bs-target="#dashboard-collapse"
+                                        aria-expanded="false">
+                                        会计类证书介绍
+                                    </button>
+                                </a>
+                                <div class="collapse show" id="dashboard-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li><a href="https://www.cicpa.org.cn/" class="link-dark rounded">CPA官网</a></li>
+                                        <li><a href="https://cn.accaglobal.com/index.html"
+                                                class="link-dark rounded">ACCA官网</a></li>
+                                        <li><a href="https://www.cma.com.cn/" class="link-dark rounded">CMA官网</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mb-1">
+                                <button class="btn btn-toggle align-items-center rounded collapsed"
+                                    data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">
+                                    金融类证书介绍
+                                </button>
+                                <div class="collapse show" id="orders-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li><a href="https://www.cfa.cn/" class="link-dark rounded">CFA官网</a></li>
+                                    </ul>
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li><a href="https://www.frm.cn/" class="link-dark rounded">FRM官网</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="border-top my-3"></li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <div class="chartjs-size-monitor">
+                        <div class="chartjs-size-monitor-expand">
+                            <div class=""></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink">
+                            <div class=""></div>
+                        </div>
+                    </div>
+                    <div
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2" style="font-family: KaiTi;"><b>证书简介</b></h1>
+                        <div class="btn-toolbar mb-2 mb-md-0"></div>
+                    </div>
+
+                    <h1 class="h4" style="font-family: San Francisco;">CFA (Chartered Financial Analyst)</h1>
+                    <p style="font-size: large; font-family: KaiTi;">
+                        特许金融分析师是由美国投资管理与研究协会（AIMR）于1963年开始设立的特许金融分析师职业资格认证。其职业考试每年举办两次，是世界上规模最大的职业考试之一，是当今世界证券投资与管理界普遍认可的一种职业称号。凭此证书可应聘投行、证券公司、基金、外企、上市公司、银行金融机构、世界500强等企业工作，从事国际高级金融分析、投资与管理工作。
+                    </p>
+                    <p style="font-size: large; font-family: KaiTi;">美国特许金融分析师（CFA）与国际注册管理会计师（CMA）、美国注册会计师（USCPA）
+                        一起并称为美国财会领域的国际三大黄金认证。</p>
+                    <p style="font-size: large; font-family: KaiTi;">
+                        CFA的课程以投资行业的实务为基础。要成为一名CFA持证人，必须经过美国投资管理与研究协会命题、组织的全球统一考试。分Level
+                        I、Level II、Level III三个等级。每年每人只能报考一个等级。只有通过全部三个级别的考试，且有4年金融从业经历者才能最终获得资格证书。</p>
+                    <p style="font-size: large; font-family: KaiTi;"><b>考试内容：</b></p>
+                    <p style="font-size: large; font-family: KaiTi;">
+                            CFA协会定期对全球的特许金融分析师进行职业分析，以确定课程中的投资知识体系和技能在特许金融分析师的工作实践中是否重要。考生的Body of Knowledge TM（知识体系）
+                            主要由四部分内容组成:伦理和职业道德标准、投资工具（包括权益类证券产品、固定收益产品、金融衍生产品及其他类投资产品）、资产估值（含数量分析方法、经济学、财务报表分析及公司金融）、投资组合管理及投资业绩报告。</p>
+                    <p style="font-size: large; font-family: KaiTi;">
+                            CFA一级考试课程着重于投资评估和管理的工具，还包括资产估值和投资组合管理技巧的入门介绍。一级考试（Level 1）形式为选择题（Multiple Choice），每卷各90题，共180题。</p>
+                    <p style="font-size: large; font-family: KaiTi;">
+                            CFA二级考试课程着重于资产估值及投资工具的应用。二级考试（Level 2）形式为案例选择题（Multiple Choice），每卷各60题，共120题。</p> 
+                    <p style="font-size: large; font-family: KaiTi;">
+                            CFA三级考试内容为前两组内容的综合总结。三级考试（Level 3）形式为分为两个部分，上午部分包括简答题和计算题两大类，下午部分与二级形式一致10道Item Set，每题6个小题，共60道题题。</p> 
+                        <div class="table-responsive">
+                            <table class="table table-striped table-sm">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">考试科目</th>
+                                        <th scope="col">报名截止日期</th>
+                                        <th scope="col">初次报名注册费</th>
+                                        <th scope="col">考试费</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Level I</td>
+                                        <td>2021年3月10日</td>
+                                        <td>US$450</td>
+                                        <td>US$700</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Level I</td>
+                                        <td>2021年4月20日</td>
+                                        <td>US$450</td>
+                                        <td>US$1000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Level II</td>
+                                        <td>2021年2月11日</td>
+                                        <td>US$450</td>
+                                        <td>US$700</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Level II</td>
+                                        <td>2021年5月4日</td>
+                                        <td>US$450</td>
+                                        <td>US$1000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Level III</td>
+                                        <td>2021年5月4日</td>
+                                        <td>US$450</td>
+                                        <td>US$700</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Level III</td>
+                                        <td>2021年8月10日</td>
+                                        <td>US$450</td>
+                                        <td>US$1000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    <p style="font-size: large; font-family: KaiTi;"><b>持证人数：</b></p>
+                    <div class="my-4 w-100 chartjs-render-monitor" id="main"
+                        style="display: block; height: 600px; width: 400px;"></div>
+                    <script type="text/javascript">
+                        var myChart = echarts.init(document.getElementById('main'));
+                        var option = {
+                            series: {
+                                type: 'sunburst',
+                                data: [{
+                                    name: '中国大陆',
+                                    value: 6078,
+                                    children: [{
+                                        name: '北上广',
+                                        value: 4759
+                                    }, {
+                                        name: '其他',
+                                        value: 1319
+                                    }]
+                                }, {
+                                    name: '香港',
+                                    value: 7553
+                                }]
+                            }
+                        };
+                        myChart.setOption(option);
+                    </script>
+
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
+                    <h1 class="h4" style="font-family: San Francisco;">FRM (Financial Risk Manager)</h1>
+                    <p style="font-size: large; font-family: KaiTi;">
+                        FRM是全球金融风险管理领域最权威的资格认证，FRM由总部设在美国的全球风险管理协会 (GARP) 设立，已经成为众多国际金融机构和跨国公司风险管理部门的从业要求之一。FRM偏向风险管理，定量(quantitative)的比重更大，并且FRM里对于市场/操作/信用风险的讲解更加深入。FRM考试分为Part I和Part II考试，总共十个科目。一级侧重基本的金融工具理论知识、金融市场基础知识；二级强调金融风险管理应用的相关概念，协会定期对FRM的考试内容做分析和调整。</p>
+                    <p style="font-size: large; font-family: KaiTi;"><b>FRM一级：</b>100道标准化单选题。主要考察金融风险管理基础性内容，包括金融风险管理基础，数量分析，金融市场与产品，估值与风险建模的综合应用。	考试的权重侧重于金融市场与产品和估值与建模的相关内容考察，二者共占60%的考察权重。使得考生具备对金融产品的基础认识及主要金融风险的合理控制。</p>
+                    <p style="font-size: large; font-family: KaiTi;"><b>FRM二级：</b>80道标准化单选题。针对主要金融风险进行考察，包括市场风险，信用风险，操作风险和投资风险等，并结合巴赛尔协议和当前金融市场案例进行综合全面的金融风险管理。	考试侧重于主要金融风险的定量和定性的结合考察，要求考试不仅要在微观层面对主要金融风险进行控制。而且要站在宏观层面，结合当前金融热点，整体把握。</p>
+
+                <div id="FRM" style="display: block; height: 600px; width: 1000px;"></div>
+                <script type="text/javascript">
+                    var myChart = echarts.init(document.getElementById('FRM'));
+                    var option = {
+                        toolbox: {
+                            show: true,
+                            feature: {
+                                mark: { show: true },
+                                dataView: { show: true, readOnly: false },
+                                restore: { show: true },
+                                saveAsImage: { show: true }
+                            }
+                        },
+                        title: [
+                        {
+                            text: 'Part1通过率',
+                            left: '20%',
+                            bottom: '30%',
+                        },
+                        {
+                            text: 'Part2通过率',
+                            left: '70%',
+                            bottom: '30%',
+                        },
+                        ],
+                        series: [
+                        {
+                            name: 'Part1',
+                            type: 'pie',  
+                            roseType: 'angle',
+                            radius: '40%', 
+                            data:[
+                                {value:40.06, name:'2018年5月'},
+                                {value:50.00, name:'2018年11月'},
+                                {value:42.00, name:'2019年5月'},
+                                {value:45.90, name:'2019年11月'},
+                                {value:44.00, name:'2020年10月'},
+                                {value:45.00, name:'2020年11月'},
+                            ],
+                            center:['25%','30%']
+                        },
+                        {
+                            name: 'Part2',
+                            type: 'pie',  
+                            roseType: 'angle',
+                            radius: '40%', 
+                            data:[
+                                {value:53.30, name:'2018年5月'},
+                                {value:56.00, name:'2018年11月'},
+                                {value:60.00, name:'2019年5月'},
+                                {value:58.60, name:'2019年11月'},
+                                {value:62.00, name:'2020年10月'},
+                                {value:59.00, name:'2020年11月'},
+                            ],
+                            center:['75%','30%']
+                        },
+                        ]
+                    };
+                    myChart.setOption(option);
+                </script>
+                    <div>
+                        <a class="btn btn-outline-secondary"
+                        href="/Ins-Finance">点击了解备考详情</a>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+    </body>
+</body>
+
+</html>

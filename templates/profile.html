@@ -1,0 +1,49 @@
+{% extends 'ratebase.html' %}
+{% block content %}
+<div >
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+        用户信息：
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <form class="needs-validation" novalidate="">
+      <div class="row g-3">
+        <div class="col-sm-16">
+          <label for="firstName" class="form-label">账号：</label>
+          <h6 class="mb-3">{{student_info.student_num}}</h6>
+        </div>
+        <hr class="my-4">
+        <div class="col-sm-16">
+            <label for="firstName" class="form-label">姓名：</label>
+            <h6 class="mb-3">{{student_info.name}}</h6>
+        </div>
+        <hr class="my-4">
+        <div class="col-sm-16">
+            <label for="firstName" class="form-label">性别：</label>
+            <h6 class="mb-3">{{student_info.gender}}</h6>
+            {% comment %} <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div> {% endcomment %}
+        </div>
+        <hr class="my-4">
+        <div class="col-sm-16">
+            <label for="firstName" class="form-label">联系电话：</label>
+            <h6 class="mb-3">{{student_info.phone}}</h6>
+            {% comment %} <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div> {% endcomment %}
+        </div>
+        <hr class="my-4">
+      </div>
+
+      <div>
+        <a class="btn btn-outline-secondary"
+        href="/Eva-Accounting">返回</a>
+        <a class="btn btn-outline-secondary"
+        href="{% url 'web:editprofile' stu_name=request.session.username %}">修改信息</a>
+      </div>
+
+    </form>
+</div>
+{% endblock %}

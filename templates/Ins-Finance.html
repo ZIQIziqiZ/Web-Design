@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounting Institutions</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    {% load static %}
+    <style>
+        p {
+            text-indent: 2em;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <main>
+        <div class="container py-4">
+            <header>
+                <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="{% url 'web:WebIndex' %}">Certificate Craze</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{% url 'web:WebIndex' %}">首页</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{% url 'web:Ins-Language' %}">语言类</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page"
+                                        href="{% url 'web:Ins-Accounting' %}">会计类</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{% url 'web:Ins-Finance' %}">金融类</a>
+                                </li>
+                            </ul>
+                            <form class="d-flex">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <div class="album py-5 bg-light">
+                <div class="container">
+            
+                  <div class="row row-cols-1 row-cols-sm-2 g-3">
+                    <div class="col">
+                      <div class="card shadow-sm">
+                        <img class="bd-placeholder-img card-img-top" width="100%" height="350" src="{% static 'images/高顿.jpg' %}" />
+                        <div class="card-body">
+                          <p class="card-text" style="font-family:KaiTi">高顿财经是高顿教育旗下提供国内外财经证书考试辅导和认证的培训品牌，主要引进的国际证书有CFA、ACCA、USCPA、CMA、CIMA、FRM；国内财经证书和执业资格培训，如CPA、会计职称、会计从业、会计实务、财务软件操作应用、证券从业、期货从业、银行从业、理财规划师、金融客户经理等等。</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a type="button" class="btn btn-sm btn-outline-secondary" href="/search">搜索评论</button>
+                              <a type="button" class="btn btn-sm btn-outline-secondary" href="https://www.gaodun.com/?pc-bdpz">官网</a>
+                            </div>
+                            <small class="text-muted">培训机构</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card shadow-sm">
+                        <img class="bd-placeholder-img card-img-top" width="100%" height="350" src="{% static 'images/金程.jpg' %}" />
+                        <div class="card-body">
+                          <p class="card-text" style="font-family:KaiTi">金程教育是一家以财经培训为核心的专业机构，致力于成为学员与客户可信赖的财经培训专家，打造财经教育领域的匠心品牌。
+                            金程教育以客户为核心，坚持不断提升产品品质，先后推出了包括：国内外金融证书考试培训（CFA、FRM、AQF、CFRM、FVA、证券从业、基金从业、银行从业）、国内外财会证书考试培训（CPA、CMA、ACCA）。</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a type="button" class="btn btn-sm btn-outline-secondary" href="/search">搜索评论</button>
+                              <a type="button" class="btn btn-sm btn-outline-secondary" href="http://frmer.gfedu.net/">官网</a>
+                            </div>
+                            <small class="text-muted">培训机构</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                          <img class="bd-placeholder-img card-img-top" width="100%" height="350" src="{% static 'images/题库.jpg' %}" />
+                          <div class="card-body">
+                            <p class="card-text" style="font-family:KaiTi">FRM题库包含三大经典做题模块、直播中心、答疑专区、考友圈、智能打卡系统、榜单排名、能力评估报告等，帮助用户合理评估自身学习状况，用户可及时调整自己的学习计划，科学备考。</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a type="button" class="btn btn-sm btn-outline-secondary" href="/search">搜索评论</button>
+                                <a type="button" class="btn btn-sm btn-outline-secondary" href="http://www.pc6.com/az/643341.html">下载</a>
+                              </div>
+                              <small class="text-muted">APP</small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="card shadow-sm">
+                          <img class="bd-placeholder-img card-img-top" width="100%" height="350" src="{% static 'images/融跃.jpg' %}" />
+                          <div class="card-body">
+                            <p class="card-text" style="font-family:KaiTi">融跃教育APP专注于CFA、FRM、CPA、ACCA等国际财经金融证书培训，依托于融跃教育强大的师资力量与教学资源，为财经学习学员打造的财经学习随身宝典。</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a type="button" class="btn btn-sm btn-outline-secondary" href="/search">搜索评论</button>
+                                <a type="button" class="btn btn-sm btn-outline-secondary" href="http://www.pc6.com/az/631235.html">下载</a>
+                              </div>
+                              <small class="text-muted">APP</small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+                  </div>
+                </div>
+            </div>
+
+            <div class="p-5 mb-4 bg-light rounded-3">
+                <div class="container-fluid py-5">
+                    <h2 style="font-family: KaiTi;"><b>评分：☆☆☆☆</b></h2>
+                    <p style="font-size: large; font-family: KaiTi;">很有收获！——学生C</p>
+                    <p style="font-size: large; font-family: KaiTi;">顺利通过考试。——学生D</p>
+                    <a class="btn btn-outline-secondary"
+                            href="/insert">留下你的评论</a>
+                    <a class="btn btn-outline-secondary"
+                            href="/show">查看更多评论</a>
+                </div>
+            </div>
+
+            <footer class="pt-3 mt-4 text-muted border-top">
+                © 2021 Certificate Craze
+            </footer>
+        </div>
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}成绩{% endblock %}
+{% block content %}
+    <div class="main-content container">
+        <div class="inner-content">
+            {% comment %} <div class="xxdj-report border zycs_text"> {% endcomment %}
+                <div class="course-report">
+                    <h1 class="bg-dark">考试成绩</h1>
+                    <div class="wid775 div bg-dark">
+                        <h2 class="test-mb40" style="color:white">
+                            <span id="username">{{ request.session.username }}</span>
+                            考试成绩：
+                        </h2>
+                        <ul>
+                            <li class="list-group-item">考试名称：{{ score.title }}</li>
+                            <li class="list-group-item">发布时间：{{ score.created_at }}</li>
+                            <li class="list-group-item">考试分数：
+                                <span style="font-weight:bold">{{ score.score }}</span>
+                            </li>
+                            <li class="list-group-item">状态：
+                                {% if score.score >= 360 %}
+                                <span style="font-weight:bold">通过</span></li>
+                                {% else%}
+                                <span style="font-weight:bold">未通过</span></li>
+                                {% endif%}
+                        </ul>
+                    </div>
+                </div>
+            {% comment %} </div> {% endcomment %}
+        </div>
+    </div>
+{% endblock %}

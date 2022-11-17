@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}我的笔记{% endblock %}
+{% block content %}
+
+{% load static %}
+<link href="{% static 'css/basenotes.css' %}" rel="stylesheet" type="text/css">
+<script src="{% static 'js/jquery-1.8.3.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/basenotes.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/jquery.slides.min.js' %}" type="text/javascript"></script>
+
+<div class="article_box clearfix">
+
+        <div class="left">
+
+            <div class="article_content_box clearfix">
+
+                <div class="article_article_title">
+                    <h3>我的笔记
+                        <span>您当前的位置：<a href="/Eva-Accounting">首页></a><a href="/notes">列表页></a><a href="#">内容页</a></span>
+                    </h3>
+                </div>
+
+                <h3 class="article_content_title">{{note.title}}</h3>
+                <div class="article_author_count_box clearfix">
+                    <i class="article_author_img"><img src="{% static 'images/tx.jpg' %}"></i>当前用户姓名：{{ request.session.username }}
+                </div>
+                <div class="article_info">
+                    <p><b>简介&nbsp;&nbsp;</b>{{note.content|slice:"100"}}</p>
+                </div>
+                <div class="article_content">
+                    <p>{{note.content}}</p>
+                    <img src="{% static 'images/bj2.jpg' %}">
+                </div>
+
+                <div class="article_end">
+                    <p>注：本文作者：{{ request.session.username }}，其版权均为作者所有，如需转载请注明文章出处及作者。</p>
+                </div>
+
+                <div class="article_like_box">
+                    <a href="{% url 'delete_note' delete_id=note.id %}">删除当前笔记</a>
+                </div>
+
+                <div class="article_prev_next_box">
+                    {% if not notes_pre.title %}
+                    <a href="#">上一篇笔记：当前为第一篇笔记</a>
+                    {% else %}
+                    <a href="{% url 'notesdetails' notes_id=notes_pre.id %}">上一篇笔记：{{notes_pre.title}}</a>
+                    {% endif %}
+                    
+                    {% if not notes_aft.title %}
+                    <a href="#">下一篇笔记：当前为最后一篇笔记</a>
+                    {% else %}
+                    <a href="{% url 'notesdetails' notes_id=notes_aft.id %}">下一篇笔记：{{notes_aft.title}}</a>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="right">
+<!--文章页关于我-->
+            <div class="right_box about_me_info">
+                <div class="about_me_info_touxiang">
+                    <i class="about_me_line"></i>
+                    <img src="{% static 'images/tx.jpg' %}">
+                </div>
+                <div>
+                    <div class="about_me_text">
+                        <h3>姓名：{{ request.session.username }}</h3>
+                        <p>备考证书：ACCA</p>
+                        <p>备考证书：四六级</p>
+                    </div>
+                </div>
+            </div>
+<!--本栏推荐-->
+            <div class="right_box tuijian_moban">
+                <h3>更多笔记</h3>
+                <div>
+                    <ul>
+                        <li><a href="{% url 'notesdetails' notes_id=notes_list.0.id %}">{{notes_list.0.title}}</a></li>
+                        <li><a href="{% url 'notesdetails' notes_id=notes_list.1.id %}">{{notes_list.1.title}}</a></li>
+                        <li><a href="{% url 'notesdetails' notes_id=notes_list.2.id %}">{{notes_list.2.title}}</a></li>
+                        <li><a href="{% url 'notesdetails' notes_id=notes_list.0.id %}">{{notes_list.0.title}}</a></li>
+                        <li><a href="{% url 'notesdetails' notes_id=notes_list.1.id %}">{{notes_list.1.title}}</a></li>
+                        <li><a href="{% url 'notesdetails' notes_id=notes_list.2.id %}">{{notes_list.2.title}}</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+</div>
+
+{% endblock %}

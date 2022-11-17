@@ -1,0 +1,39 @@
+{% extends 'ratebase.html' %}
+{% block content %}
+<form action = "/editprofile/{{student_info.name}}" method = "post">
+    {%csrf_token%}
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+        修改用户信息：
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+      <div class="row g-3">
+        <div class="col-sm-16">
+          <label for="firstName" class="form-label">账号（不可修改）：</label>
+          <h6 class="mb-3">{{student_info.student_num}}</h6>
+        </div>
+        <hr class="my-4">
+        <div class="col-sm-16">
+            <label for="firstName" class="form-label">姓名（不可修改）：</label>
+            <h6 class="mb-3">{{student_info.name}}</h6>
+        </div>
+        <hr class="my-4">
+        <div class="col-sm-16">
+            <label for="firstName" class="form-label">性别：</label>
+            <input type="text" class="form-control" placeholder="请输入修改后的性别：male/female" name = "editgender"/>
+        </div>
+        <hr class="my-4">
+        <div class="col-sm-16">
+            <label for="firstName" class="form-label">联系电话：</label>
+            <input type="text" class="form-control" placeholder="请输入修改后的联系电话" name = "editphone"/>
+        </div>
+        <hr class="my-4">
+      </div>
+
+      <div>
+        <input class="btn btn-outline-secondary" type = "submit" value = "提交"/>
+        <a class="btn btn-outline-secondary"
+        href="{% url 'web:profile' stu_name=request.session.username %}">返回</a>
+      </div>
+    </div>
+</form>
+{% endblock %}

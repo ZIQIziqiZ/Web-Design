@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Language</title>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+
+        <!-- Bootstrap -->
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+        {% load static %}
+        <link rel="canonical" href="{% static 'css/dashboard.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+        <link rel="stylesheet" href="{% static 'css/sidebars.css' %}">
+        <link rel="stylesheet" href="{% static 'css/template.css' %}">
+
+    </head>
+</head>
+
+<body>
+
+    <body>
+
+        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="{% url 'web:WebIndex' %}">Certificate Craze</a>
+            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+            <div class="navbar-nav">
+                <div class="nav-item text-nowrap">
+                    <a class="nav-link px-3" href="#">Sign out</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                    <div class="position-sticky pt-3">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <button class="btn btn-toggle align-items-center rounded collapsed"
+                                    data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                                    语言类证书介绍
+                                </button>
+                                <div class="collapse show" id="home-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li><a href="https://cet.neea.edu.cn/" class="link-dark rounded">CET-4官网</a></li>
+                                        <li><a href="https://cet.neea.edu.cn/" class="link-dark rounded">CET-6官网</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mb-1">
+                                <a href="{% url 'web:Accounting' %}" class="link-dark rounded">
+                                    <button class="btn btn-toggle align-items-center rounded collapsed"
+                                        data-bs-toggle="collapse" data-bs-target="#dashboard-collapse"
+                                        aria-expanded="false">
+                                        会计类证书介绍
+                                    </button>
+                                </a>
+                                <div class="collapse show" id="dashboard-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li><a href="https://www.cicpa.org.cn/" class="link-dark rounded">CPA官网</a></li>
+                                        <li><a href="https://cn.accaglobal.com/index.html"
+                                                class="link-dark rounded">ACCA官网</a></li>
+                                        <li><a href="https://www.cma.com.cn/" class="link-dark rounded">CMA官网</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mb-1">
+                                <a href="{% url 'web:Finance' %}" class="link-dark rounded">
+                                    <button class="btn btn-toggle align-items-center rounded collapsed"
+                                        data-bs-toggle="collapse" data-bs-target="#orders-collapse"
+                                        aria-expanded="false">
+                                        金融类证书介绍
+                                    </button>
+                                </a>
+                                <div class="collapse show" id="orders-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li><a href="https://www.cfa.cn/" class="link-dark rounded">CFA官网</a></li>
+                                    </ul>
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li><a href="https://www.frm.cn/" class="link-dark rounded">FRM官网</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="border-top my-3"></li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <div class="chartjs-size-monitor">
+                        <div class="chartjs-size-monitor-expand">
+                            <div class=""></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink">
+                            <div class=""></div>
+                        </div>
+                    </div>
+                    <div
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2" style="font-family: KaiTi;"><b>证书简介</b></h1>
+                        <div class="btn-toolbar mb-2 mb-md-0"></div>
+                    </div>
+
+                    <h1 class="h4" style="font-family: San Francisco;">CET-4 (College English Test Band 4)</h1>
+                    <p style="font-size: large; font-family: KaiTi;">CET-4是由国家教育部高等教育司主持的全国性英语考试。</p>
+                    <p style="font-size: large; font-family: KaiTi;">考试的主要对象是根据教育大纲修完大学英语四级的在校专科生、本科生或研究生。
+                        英语四级考试目的是推动大学英语教学大纲的贯彻执行，对大学生的英语能力进行客观、准确的测量，为提高我国大学英语课程的教学质量服务。</p>
+                    <p style="font-size: large; font-family: KaiTi;"><b>四级考试流程：</b></p>
+                    <p style="font-size: large; font-family: KaiTi;">8：40——9：00：试音时间</p>
+                    <p style="font-size: large; font-family: KaiTi;">9：00——9：10：阅读考场注意事项，发放考卷，贴条形码</p>
+                    <p style="font-size: large; font-family: KaiTi;">9：10——9：40：作文考试阶段</p>
+                    <p style="font-size: large; font-family: KaiTi;">9：40——10：05：听力测试</p>
+                    <p style="font-size: large; font-family: KaiTi;">10：05——10：10：考试暂停5分钟，收答题卡1(即作文和听力)</p>
+                    <p style="font-size: large; font-family: KaiTi;">听力结束后完成剩余考项：阅读和翻译</p>
+                    <p style="font-size: large; font-family: KaiTi;">11：20：全部考试结束</p>
+
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
+                    <h1 class="h4" style="font-family: San Francisco;">CET-6 (College English Test Band 6)</h1>
+                    <p style="font-size: large; font-family: KaiTi;">
+                        考试对象限制在普通高校内部四年制或以上根据教育大纲修完大学英语六级课程的本科生；且大学英语四级考试成绩达到425分以上(含425分)才能报考大学英语六级考试。</p>
+                    <p style="font-size: large; font-family: KaiTi;">符合大学英语六级考试报名条件的人员包括：全日制普通高校专科、本科和研究生中的在校生。</p>
+                    <p style="font-size: large; font-family: KaiTi;"><b>六级考试流程：</b></p>
+                    <p style="font-size: large; font-family: KaiTi;">14:40—15:00：进考场，试音时间</p>
+                    <p style="font-size: large; font-family: KaiTi;">15:00—15:10：发放考卷，贴条形码，填涂个人信息</p>
+                    <p style="font-size: large; font-family: KaiTi;">15:10—15:40：考试正式开始，作文考试</p>
+                    <p style="font-size: large; font-family: KaiTi;">15:40—16:10：听力考试</p>
+                    <p style="font-size: large; font-family: KaiTi;">16:10—16:15：考试暂停5分钟收答题卡1（即作文和听力）</p>
+                    <p style="font-size: large; font-family: KaiTi;">16:15—17:25：阅读和翻译考试</p>
+                    <p style="font-size: large; font-family: KaiTi;">17:25：考试结束</p>
+                    
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
+                    <h1 class="h4" style="font-family: KaiTi;"><b>英语四六级考试各部分分值：</b></h1>
+                    <p style="font-size: large; font-family: KaiTi;">一、作文部分（15%）= 106.5分</p>
+                    <p style="font-size: large; font-family: KaiTi;">二、听力部分（35%）= 248.5分</p>
+                    <p style="font-size: large; font-family: KaiTi;">三、综合部分（35%）= 248.5分</p>
+                    <p style="font-size: large; font-family: KaiTi;">四、翻译部分（15%）= 106.5分</p>
+
+                    <div
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2" style="font-family: KaiTi;"><b>报考人数</b></h1>
+                        <div class="btn-toolbar mb-2 mb-md-0"></div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">地区</th>
+                                    <th scope="col">2016.12</th>
+                                    <th scope="col">2017.6</th>
+                                    <th scope="col">2017.12</th>
+                                    <th scope="col">2018.12</th>
+                                    <th scope="col">2019.6</th>
+                                    <th scope="col">2019.12</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>北京</td>
+                                    <td>283423</td>
+                                    <td>265494</td>
+                                    <td>256696</td>
+                                    <td>272624</td>
+                                    <td>290468</td>
+                                    <td>278079</td>
+                                </tr>
+                                <tr>
+                                    <td>四川</td>
+                                    <td>547843</td>
+                                    <td>581672</td>
+                                    <td>593669</td>
+                                    <td>599460</td>
+                                    <td>536200</td>
+                                    <td>662954</td>
+                                </tr>
+                                <tr>
+                                    <td>甘肃</td>
+                                    <td>179250</td>
+                                    <td>187640</td>
+                                    <td>179921</td>
+                                    <td>181776</td>
+                                    <td>186308</td>
+                                    <td>195008</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <a class="btn btn-outline-secondary"
+                        href="/Ins-Language">点击了解备考详情</a>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+    </body>
+</body>
+
+</html>

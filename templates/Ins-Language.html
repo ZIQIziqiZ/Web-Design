@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Institutions</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+
+    <!-- Bootstrap  -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    {% load static %}
+    <style>
+        p {
+            text-indent: 2em;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <main>
+        <div class="container py-4">
+            <header>
+                <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="{% url 'web:WebIndex' %}">Certificate Craze</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{% url 'web:WebIndex' %}">首页</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{% url 'web:Ins-Language' %}">语言类</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page"
+                                        href="{% url 'web:Ins-Accounting' %}">会计类</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{% url 'web:Ins-Finance' %}">金融类</a>
+                                </li>
+                            </ul>
+                            <form class="d-flex">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <div class="album py-5 bg-light">
+                <div class="container">
+            
+                  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <div class="col">
+                      <div class="card shadow-sm">
+                        <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{% static 'images/新东方.jpg' %}" />
+                        <div class="card-body">
+                          <p class="card-text" style="font-family:KaiTi">新东方集团以外语培训和基础教育为核心，拥有短期培训系统、高等教育系统、教育研发系统等多个发展平台，是一家集教育培训、教育研发、出国留学服务、在线教育等于一体的大型综合性教育科技集团。</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a type="button" class="btn btn-sm btn-outline-secondary" href="/search">搜索评论</button>
+                              <a type="button" class="btn btn-sm btn-outline-secondary" href="http://lingxi.xdf.cn/220bae22?utm_source=jituan_searchengine_baidu_PP&utm_medium=CPD&utm_campaign=Jituan_baidu_pp_pc_CPP_yayun&utm_term=zhubiaoti&xdf_source_channel_code=1ff1a56af744f998526a6a9d6454a427">官网</a>
+                            </div>
+                            <small class="text-muted">培训机构</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card shadow-sm">
+                        <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{% static 'images/考虫.jpg' %}" />
+                        <div class="card-body">
+                          <p class="card-text" style="font-family:KaiTi">考虫，大学生备考一站式服务平台，致力于给大学生提供高性价比的优质培训服务，课程产品涵盖英语四六级、考研、出国留学、实用英语等，为用户提供包括直播课程、教辅资料、练习服务等全套备考方案。</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a type="button" class="btn btn-sm btn-outline-secondary" href="/search">搜索评论</button>
+                              <a type="button" class="btn btn-sm btn-outline-secondary" href="https://www.kaochong.com/">官网</a>
+                            </div>
+                            <small class="text-muted">培训机构</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                          <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{% static 'images/粉笔.jpg' %}" />
+                          <div class="card-body">
+                            <p class="card-text" style="font-family:KaiTi">粉笔四六级收录了近5年的四六级真题，配备听力音频，四六级免费公开课、四六级系统班、考前急救班等你来听，所有课程支持无限次回放，支持离线下载节省流量，写译题智能批改，提前了解自己的真实分数。</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a type="button" class="btn btn-sm btn-outline-secondary" href="/search">搜索评论</button>
+                                <a type="button" class="btn btn-sm btn-outline-secondary" href="https://apps.apple.com/cn/app/id1440732702?l=en">下载</a>
+                              </div>
+                              <small class="text-muted">APP</small>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                      <div class="col">
+                        <div class="card shadow-sm">
+                          <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{% static 'images/扇贝.jpg' %}" />
+                          <div class="card-body">
+                            <p class="card-text" style="font-family:KaiTi">扇贝阅读每天会更新十多篇英语文章，早晚会自动推送两篇国内外最热门的。用户打开每一篇文章后，系统会自动标出他曾经通过扇贝单词或者扇贝网学过的词汇；文章也会标出考试要求的词汇。</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a type="button" class="btn btn-sm btn-outline-secondary" href="/search">搜索评论</button>
+                                <a type="button" class="btn btn-sm btn-outline-secondary" href="https://web.shanbay.com/web/main">下载</a>
+                              </div>
+                              <small class="text-muted">APP</small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="card shadow-sm">
+                          <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{% static 'images/大耳朵英语.jpg' %}" />
+                          <div class="card-body">
+                            <p class="card-text" style="font-family:KaiTi">大耳朵英语是一个论坛型的硬实力网站。包含了关于文章阅读、英语听力、学习工具等英语的学习资料，适合各个水平。
+                                该网站提供很多考试资料，比如大学英语四六级巅峰听力系列，英语专业4级听写英语等。</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a type="button" class="btn btn-sm btn-outline-secondary" href="/search">搜索评论</button>
+                                <a type="button" class="btn btn-sm btn-outline-secondary" href="http://www.bigear.cn/">官网</a>
+                              </div>
+                              <small class="text-muted">网站</small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="card shadow-sm">
+                          <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{% static 'images/沪江.jpg' %}" />
+                          <div class="card-body">
+                            <p class="card-text" style="font-family:KaiTi">沪江英语通过经营综合性互联网教育平台向广大用户提供种类多元化、具备高度互动特质的优秀互联网教育产品及服务。
+                                在娱乐英语分类里面还有英文歌曲，电影，美剧，英剧，迪士尼动画等。</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a type="button" class="btn btn-sm btn-outline-secondary" href="/search">搜索评论</button>
+                                <a type="button" class="btn btn-sm btn-outline-secondary" href="https://www.hjenglish.com/">官网</a>
+                              </div>
+                              <small class="text-muted">网站</small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+                  </div>
+                </div>
+            </div>
+
+            <div class="p-5 mb-4 bg-light rounded-3">
+                <div class="container-fluid py-5">
+                    <h2 style="font-family: KaiTi;"><b>评分：☆☆☆☆</b></h2>
+                    <p style="font-size: large; font-family: KaiTi;">英语水平显著提高！——学生E</p>
+                    <a class="btn btn-outline-secondary"
+                            href="/insert">留下你的评论</a>
+                    <a class="btn btn-outline-secondary"
+                            href="/show">查看更多评论</a>
+                </div>
+            </div>
+
+            <footer class="pt-3 mt-4 text-muted border-top">
+                © 2021 Certificate Craze
+            </footer>
+        </div>
+    </main>
+
+</body>
+
+</html>

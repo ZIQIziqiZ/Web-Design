@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounting Institutions</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    {% load static %}
+    <style>
+        p {
+            text-indent: 2em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <div class="container py-4">
+            <header>
+                <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="{% url 'web:WebIndex' %}">Certificate Craze</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{% url 'web:WebIndex' %}">首页</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{% url 'web:Ins-Language' %}">语言类</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page"
+                                        href="{% url 'web:Ins-Accounting' %}">会计类</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{% url 'web:Ins-Finance' %}">金融类</a>
+                                </li>
+                            </ul>
+                            <form class="d-flex">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <div class="album py-5 bg-light">
+                <div class="container">
+            
+                  <div class="row row-cols-1 row-cols-sm-2 g-3">
+                    <div class="col">
+                      <div class="card shadow-sm">
+                        <img class="bd-placeholder-img card-img-top" width="100%" height="350" src="{% static 'images/中博.jpg' %}" />
+                        <div class="card-body">
+                          <p class="card-text" style="font-family:KaiTi">中博教育成立于2004年，是广州中博教育股份有限公司旗下财经教育培训品牌，致力于国际高端财经金融证书教育、企业培训、考研培训、财经垂直实训与招聘、语言培训以及国际留学等项目。</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a type="button" class="btn btn-sm btn-outline-secondary" href="/search">搜索评论</button>
+                              <a type="button" class="btn btn-sm btn-outline-secondary" href="https://www.zbgedu.com/special-acca2021.html?fftg-bd08-pc-acca_314095">官网</a>
+                            </div>
+                            <small class="text-muted">培训机构</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card shadow-sm">
+                        <img class="bd-placeholder-img card-img-top" width="100%" height="350" src="{% static 'images/泽稷.jpg' %}" />
+                        <div class="card-body">
+                          <p class="card-text" style="font-family:KaiTi">泽稷教育培训有限公司成立于2013年,公司总部位于上海。主要培训项目ACCA、CFA、CPA、FRM、AICPA、CMA、CIMA、初级会计职称、中级会计职称、证券从业、银行从业、基金从业等财经职业证书。</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a type="button" class="btn btn-sm btn-outline-secondary" href="/search">搜索评论</button>
+                              <a type="button" class="btn btn-sm btn-outline-secondary" href="https://www.zejicert.cn/?baidu-SEM-pinzhuan">官网</a>
+                            </div>
+                            <small class="text-muted">培训机构</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+            </div>
+
+            <div class="p-5 mb-4 bg-light rounded-3">
+                <div class="container-fluid">
+                    <h2 style="font-family: KaiTi;"><b>评分：☆☆☆☆☆</b></h2>
+                    <p style="font-size: large; font-family: KaiTi;">强烈推荐！——学生A</p>
+                    <p style="font-size: large; font-family: KaiTi;">非常好！——学生B</p>
+                    <a class="btn btn-outline-secondary"
+                            href="/insert">留下你的评论</a>
+                    <a class="btn btn-outline-secondary"
+                            href="/show">查看更多评论</a>
+                </div>
+            </div>
+
+            <footer class="pt-3 mt-4 text-muted border-top">
+                © 2021 Certificate Craze
+            </footer>
+        </div>
+    </main>
+
+</body>
+
+</html>

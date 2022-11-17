@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Evaluation</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+
+    <!--Bootstrap-->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    {% load static %}
+    <link rel="canonical" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sidebars.css' %}">
+    <link rel="stylesheet" href="{% static 'css/template.css' %}">
+
+</head>
+
+<body>
+
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="{% url 'web:WebIndex' %}">Certificate Craze</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <div class="navbar-nav">
+            <div class="nav-item text-nowrap">
+                <a class="nav-link px-3" href="/logout">Sign out</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <button class="btn btn-toggle align-items-center rounded collapsed"
+                                data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                                历年数据
+                            </button>
+                            <div class="collapse show" id="home-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li><a href="/Eva-Language" class="link-dark rounded">语言类</a></li>
+                                    <li><a href="#" class="link-dark rounded">会计类</a></li>
+                                    <li><a href="/Eva-Finance" class="link-dark rounded">金融类</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <button class="btn btn-toggle align-items-center rounded collapsed"
+                                data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true" href="/index">
+                                我的成绩
+                            </button>
+                            <div class="collapse show" id="home-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li><a href="/index" class="link-dark rounded">成绩单</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <button class="btn btn-toggle align-items-center rounded collapsed"
+                                data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true" href="/index">
+                                学习空间
+                            </button>
+                            <div class="collapse show" id="home-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li><a href="/class" class="link-dark rounded">我的课程</a></li>
+                                    <li><a href="/notes" class="link-dark rounded">我的笔记</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="border-top my-3"></li>
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center rounded collapsed"
+                                data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                                我的账户
+                            </button>
+                            <div class="collapse" id="account-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li><a href="{% url 'web:profile' stu_name=request.session.username %}" class="link-dark rounded">个人信息</a></li>
+                                    <li><a href="/logout" class="link-dark rounded">退出登录</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2" style="font-family: KaiTi;">CPA阶段通过率</h1>
+                </div>
+                <div id="CPA" style="display: block; height: 400px; width: 1000px;"></div>
+                <script type="text/javascript">
+                    var myChart = echarts.init(document.getElementById('CPA'));
+                    var series_phase1 = []; var series_phase2 = []; 
+                    var indicator_data = [];
+                    {% for i in phase1 %}
+                    series_phase1.push('{{i.rate}}')
+                    {% endfor %}
+                    {% for j in phase2 %}
+                    series_phase2.push('{{j.rate}}')
+                    {% endfor %}
+                    {% for k in phase1 %}
+                    indicator_data.push('{{k.date.year}}年')
+                    {% endfor %}
+                    var option = {
+                        tooltip: {
+                            trigger: 'item'
+                        },
+                        legend: {
+                            orient: 'vertical',
+                            x: 'right',
+                            y: 'bottom',
+                            data: ['专业阶段通过率', '综合阶段通过率']
+                        },
+                        toolbox: {
+                            show: true,
+                            feature: {
+                                mark: { show: true },
+                                dataView: { show: true, readOnly: false },
+                                restore: { show: true },
+                                saveAsImage: { show: true }
+                            }
+                        },
+                        polar: [
+                            {
+                                indicator: [
+                                {text: indicator_data[0], max: 100},
+                                {text: indicator_data[1], max: 100},
+                                {text: indicator_data[2], max: 100},
+                                {text: indicator_data[3], max: 100},
+                                {text: indicator_data[4], max: 100},
+                                {text: indicator_data[5], max: 100},
+                                ]
+                            }
+                        ],
+                        calculable: true,
+                        series: [{
+                            type: 'radar',
+                            data: [
+                                {
+                                    value: series_phase1,
+                                    name: '专业阶段通过率'
+                                },
+                                {
+                                    value: series_phase2,
+                                    name: '综合阶段通过率'
+                                }
+                            ]
+                        }
+                        ]
+                    };
+                    myChart.setOption(option);
+                </script>
+
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2" style="font-family: KaiTi;">CPA各科目通过率</h1>
+                </div>
+                <div id="CPA2" style="display: block; height: 600px; width: 1000px;"></div>
+                <script type="text/javascript">
+                    var myChart = echarts.init(document.getElementById('CPA2'));
+                    var series_y18 = []; var series_y19 = []; var series_y20 = []; var series_y21 = []; var name_data = [];
+                    {% for i1 in y18 %}
+                    series_y18.push('{{i1.rate}}')
+                    {% endfor %}
+                    {% for i2 in y19 %}
+                    series_y19.push('{{i2.rate}}')
+                    {% endfor %}
+                    {% for i3 in y20 %}
+                    series_y20.push('{{i3.rate}}')
+                    {% endfor %}
+                    {% for i4 in y21 %}
+                    series_y21.push('{{i4.rate}}')
+                    {% endfor %}
+                    {% for j in y18 %}
+                    name_data.push('{{j.subject}}')
+                    {% endfor %}
+                    var option = {
+                        toolbox: {
+                            show: true,
+                            feature: {
+                                mark: { show: true },
+                                dataView: { show: true, readOnly: false },
+                                restore: { show: true },
+                                saveAsImage: { show: true }
+                            }
+                        },
+                        title: [
+                        {
+                            text: '2018年',
+                            left: '22%',
+                            top: '29%',
+                        },
+                        {
+                            text: '2019年',
+                            left: '72%',
+                            top: '29%',
+                        },
+                        {
+                            text: '2020年',
+                            left: '22%',
+                            top: '74%',
+                        },
+                        {
+                            text: '2021年',
+                            left: '72%',
+                            top: '74%',
+                        },
+                        ],
+                        series: [
+                        {
+                            name: '2018年',
+                            type: 'pie',  
+                            radius: ['25%','40%'], 
+                            data:[
+                                {value:series_y18[0], name:name_data[0]},
+                                {value:series_y18[1], name:name_data[1]},
+                                {value:series_y18[2], name:name_data[2]},
+                                {value:series_y18[3], name:name_data[3]},
+                                {value:series_y18[4], name:name_data[4]},
+                                {value:series_y18[5], name:name_data[5]},
+                            ],
+                            center:['25%','30%']
+                        },
+                        {
+                            name: '2019年',
+                            type: 'pie',  
+                            radius: ['25%','40%'], 
+                            data:[
+                                {value:series_y19[0], name:name_data[0]},
+                                {value:series_y19[1], name:name_data[1]},
+                                {value:series_y19[2], name:name_data[2]},
+                                {value:series_y19[3], name:name_data[3]},
+                                {value:series_y19[4], name:name_data[4]},
+                                {value:series_y19[5], name:name_data[5]},
+                            ],
+                            center:['75%','30%']
+                        },
+                        {
+                            name: '2020年',
+                            type: 'pie',  
+                            radius: ['25%','40%'], 
+                            data:[
+                                {value:series_y20[0], name:name_data[0]},
+                                {value:series_y20[1], name:name_data[1]},
+                                {value:series_y20[2], name:name_data[2]},
+                                {value:series_y20[3], name:name_data[3]},
+                                {value:series_y20[4], name:name_data[4]},
+                                {value:series_y20[5], name:name_data[5]},
+                            ],
+                            center:['25%','75%']
+                        },
+                        {
+                            name: '2021年',
+                            type: 'pie',  
+                            radius: ['25%','40%'], 
+                            data:[
+                                {value:series_y21[0], name:name_data[0]},
+                                {value:series_y21[1], name:name_data[1]},
+                                {value:series_y21[2], name:name_data[2]},
+                                {value:series_y21[3], name:name_data[3]},
+                                {value:series_y21[4], name:name_data[4]},
+                                {value:series_y21[5], name:name_data[5]},
+                            ],
+                            center:['75%','75%']
+                        },
+                        ]
+                    };
+                    myChart.setOption(option);
+                </script>
+
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2" style="font-family: KaiTi;">ACCA通过率</h1>
+                </div>
+                <div id="ACCA" style="display: block; height: 400px; width: 1000px;"></div>
+                <script type="text/javascript">
+                    var myChart = echarts.init(document.getElementById('ACCA'));
+                    var series_AB = []; var series_MA = []; var series_FA = []; var series_LW = []; 
+                    var series_PM = []; var series_TX = []; var series_FR = []; var series_AA = []; 
+                    var series_FM = []; var series_AFM = []; var series_APM = []; var series_ATX = []; var series_AAA = [];
+                    var xAxis_data = [];
+                    {% for i1 in AB %} 
+                    series_AB.push('{{i1.rate}}') 
+                    {% endfor %}
+                    {% for i2 in MA %} 
+                    series_MA.push('{{i2.rate}}') 
+                    {% endfor %}
+                    {% for i3 in FA %} 
+                    series_FA.push('{{i3.rate}}') 
+                    {% endfor %}
+                    {% for i4 in LW %} 
+                    series_LW.push('{{i4.rate}}') 
+                    {% endfor %}
+                    {% for i5 in PM %} 
+                    series_PM.push('{{i5.rate}}') 
+                    {% endfor %}
+                    {% for i6 in TX %} 
+                    series_TX.push('{{i6.rate}}') 
+                    {% endfor %}
+                    {% for i7 in FR %} 
+                    series_FR.push('{{i7.rate}}') 
+                    {% endfor %}
+                    {% for i8 in AA %} 
+                    series_AA.push('{{i8.rate}}') 
+                    {% endfor %}
+                    {% for i9 in FM %} 
+                    series_FM.push('{{i9.rate}}') 
+                    {% endfor %}
+                    {% for i10 in AFM %} 
+                    series_AFM.push('{{i10.rate}}') 
+                    {% endfor %}
+                    {% for i11 in APM %} 
+                    series_APM.push('{{i11.rate}}') 
+                    {% endfor %}
+                    {% for i12 in ATX %} 
+                    series_ATX.push('{{i12.rate}}') 
+                    {% endfor %}
+                    {% for i13 in AAA %} 
+                    series_AAA.push('{{i13.rate}}') 
+                    {% endfor %}
+                    {% for m in AB %} 
+                    xAxis_data.push('{{m.date.year}}年{{m.date.month}}月') 
+                    {% endfor %}
+                    var option = {
+                        tooltip: {},
+                        toolbox: {
+                            show: true,
+                            feature: {
+                                mark: { show: true },
+                                dataView: { show: true, readOnly: false },
+                                restore: { show: true },
+                                saveAsImage: { show: true }
+                            }
+                        },
+                        legend: {
+                            data: ['AB', 'MA', 'FA', 'LW', 'PM', 'TX', 'FR', 'AA', 'FM', 'AFM', 'APM', 'ATX', 'AAA'],
+                            icon: "diamond",
+                            x: 'right',
+                            y: 'top',
+                            width: '50',
+                            padding: [30, 0, 10, 10],
+                        },
+                        xAxis: {
+                            data: xAxis_data,
+                            axisLabel: {
+                                interval: 0,
+                                rotate: 40
+                            }
+                        },
+                        yAxis: {},
+                        series: [{
+                            name: 'AB',
+                            type: 'line',
+                            data: series_AB
+                        }, {
+                            name: 'MA',
+                            type: 'line',
+                            data: series_MA
+                        }, {
+                            name: 'FA',
+                            type: 'line',
+                            data: series_FA
+                        }, {
+                            name: 'LW',
+                            type: 'line',
+                            data: series_LW
+                        }, {
+                            name: 'PM',
+                            type: 'line',
+                            data: series_PM
+                        }, {
+                            name: 'TX',
+                            type: 'line',
+                            data: series_TX
+                        }, {
+                            name: 'FR',
+                            type: 'line',
+                            data: series_FR
+                        }, {
+                            name: 'AA',
+                            type: 'line',
+                            data: series_AA
+                        }, {
+                            name: 'FM',
+                            type: 'line',
+                            data: series_FM
+                        }, {
+                            name: 'AFM',
+                            type: 'line',
+                            data: series_AFM
+                        }, {
+                            name: 'APM',
+                            type: 'line',
+                            data: series_APM
+                        }, {
+                            name: 'ATX',
+                            type: 'line',
+                            data: series_ATX
+                        }, {
+                            name: 'AAA',
+                            type: 'line',
+                            data: series_AAA
+                        }
+                        ]
+                    };
+                    myChart.setOption(option);
+                </script>
+            </main>
+        </div>
+    </div>
+
+</body>
+
+</html>

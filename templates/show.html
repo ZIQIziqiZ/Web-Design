@@ -1,0 +1,28 @@
+{% extends 'ratebase.html' %}
+{% block content %}
+<div class="alert alert-secondary alert-dismissible fade show" role="alert">
+    评分评论列表：
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+    <table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">机构/网站/app</th>
+            <th scope="col">评分</th>
+            <th scope="col">评论</th>
+        </tr>
+    </thead>
+    {% for line in message_list %}
+    <tr class="table-secondary">
+        <td scope="row">{{line.institute}}</td>
+        <td>{{line.star}}</td>
+        <td>{{line.comment}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+    <div class = "mb-3">
+        <a class="btn btn-outline-secondary" href="{% url 'web:Ins-Language' %}">返回</a>
+        <a class="btn btn-outline-secondary" href="/search">详细搜索</a>
+    </div>
+{% endblock %}
+

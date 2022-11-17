@@ -1,0 +1,36 @@
+{% extends 'ratebase.html' %}
+{% block content %}
+    <form action = "/insert/" method = "post">
+        {%csrf_token%}
+        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+            请为机构/网站/app评分并留下你的评论：
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div class="mb-3">
+            <input class="form-control form-control-lg" 
+                   type="text" placeholder="机构/网站/app" aria-label=".form-control-lg example"
+                   name = "institute"/>
+        </div>
+        <div class = "mb-3">
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name = "star">
+                <option selected="">评分</option>
+                <option value="1">1.0</option>
+                <option value="2">2.0</option>
+                <option value="3">3.0</option>
+                <option value="4">4.0</option>
+                <option value="5">5.0</option>
+            </select>
+        </div>
+        <div class = "mb-3">
+            <input class="form-control form-control-lg" 
+                   type="text" placeholder="评论" aria-label=".form-control-lg example"
+                   name = "comment"/>
+        </div>
+        <div class = "mb-3">
+            <input class="btn btn-outline-secondary" type = "submit" value = "提交"/>
+            <a class="btn btn-outline-secondary" href="/show">查看更多评论</a>
+        </div>
+        
+    </form>
+{% endblock %}
+
